@@ -1,0 +1,28 @@
+{
+  "name": "SeeForex",
+  "version": "1.0.0",
+  "description": "SeeForex",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "14.4.0"
+  },
+  "dependencies": {
+    "@bandprotocol/bandchain.js": "^1.1.6",
+    "@harmony-js/core": "^0.1.54",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1",
+    "tlib": "^1.0.0",
+    "tslib": "^2.0.3"
+  },
+  "keywords": [
+    "SeeForex"
+  ]
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SeeForex</title>
+	<meta charset="utf-8">
+    <meta name="application-name" content="SeeForex">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#111111">
+    <link rel="stylesheet" type="text/css" href="/styles/markets.css">
+    <link rel="icon" href="/media/mobile-icon.png">
+    <link rel="icon" sizes="192x192" href="/media/mobile-icon-192.png">
+    <link rel="apple-touch-icon" href="/media/mobile-icon-apple.png"/>
+</head>
+<body class="dark-mode">
+
+<header>
+    <wrap>
+        <div id="toplogo">
+            <img id="logo" src="/media/logo.png"> 
+            <div id="toptxt">
+                <h1><a href=".">SeeForex</a></h1> 
+                <h2>Currency Exchange</h2> 
+            </div>
+        </div>
+        <div id="topone">
+            <li id="user-address"><button id="connect" onclick="onWallet()">Wallet not connected</button></li> 
+            <li id="user-balance">Balance 0.0000</li>
+        </div>
+    </wrap>
+</header>
+
+<div id="markets">
+    <wrap>
+        <div id="sidebar">
+            <div id="coins-wrap">
+                <table id="coins">
+                    <thead>
+                        <tr> <th>Symbol</th> <th>ONE Price</th> <th>USD Price</th> <th>Change 24h</th> </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="USD" class="select"><td>USD</td><td class="price-up" id="usd-one">0.00</td><td class="go-no" id="usd-usd">0.00</td><td class="go-no" id="usd-pct">0.00%</td></tr>
+                        <tr id="EUR"><td>EUR</td><td class="price-up" id="eur-one">0.00</td><td class="go-no" id="eur-usd">0.00</td><td class="go-no" id="eur-pct">0.00%</td></tr>
+                        <tr id="GBP"><td>GBP</td><td class="price-up" id="gbp-one">0.00</td><td class="go-no" id="gbp-usd">0.00</td><td class="go-no" id="gbp-pct">0.00%</td></tr>
+                        <tr id="JPY"><td>JPY</td><td class="price-up" id="jpy-one">0.00</td><td class="go-no" id="jpy-usd">0.00</td><td class="go-no" id="jpy-pct">0.00%</td></tr>
+                        <tr id="CNY"><td>CNY</td><td class="price-up" id="cny-one">0.00</td><td class="go-no" id="cny-usd">0.00</td><td class="go-no" id="cny-pct">0.00%</td></tr>
+                        <tr id="KRW"><td>KRW</td><td class="price-up" id="krw-one">0.00</td><td class="go-no" id="krw-usd">0.00</td><td class="go-no" id="krw-pct">0.00%</td></tr>
+                        <tr id="INR"><td>INR</td><td class="price-up" id="inr-one">0.00</td><td class="go-no" id="inr-usd">0.00</td><td class="go-no" id="inr-pct">0.00%</td></tr>
+                        <tr id="RUB"><td>RUB</td><td class="price-up" id="rub-one">0.00</td><td class="go-no" id="rub-usd">0.00</td><td class="go-no" id="rub-pct">0.00%</td></tr>
+                        <tr id="CHF"><td>CHF</td><td class="price-up" id="chf-one">0.00</td><td class="go-no" id="chf-usd">0.00</td><td class="go-no" id="chf-pct">0.00%</td></tr>
+                        <tr id="AUD"><td>AUD</td><td class="price-up" id="aud-one">0.00</td><td class="go-no" id="aud-usd">0.00</td><td class="go-no" id="aud-pct">0.00%</td></tr>
+                        <tr id="CAD"><td>CAD</td><td class="price-up" id="cad-one">0.00</td><td class="go-no" id="cad-usd">0.00</td><td class="go-no" id="cad-pct">0.00%</td></tr>
+                        <tr id="HKD"><td>HKD</td><td class="price-up" id="hkd-one">0.00</td><td class="go-no" id="hkd-usd">0.00</td><td class="go-no" id="hkd-pct">0.00%</td></tr>
+                        <tr id="BRL"><td>BRL</td><td class="price-up" id="brl-one">0.00</td><td class="go-no" id="brl-usd">0.00</td><td class="go-no" id="brl-pct">0.00%</td></tr>
+                    </tbody>
+                </table>
+                <div id="updated">
+                    <span id="update-time">Updated every hour</span> 
+                </div>
+            </div>
+
+        </div>
+
+        <div id="content">
+            <div id="chart-area">
+                <div id="asset-info">
+                    <div class="cell">
+                        <label>Open</label>
+                        <span id="price-open">0.00000000</span>
+                    </div>
+                    <div class="cell">
+                        <label>Close</label>
+                        <span id="price-close">0.00000000</span>
+                    </div>
+                    <div class="cell">
+                        <label>High</label>
+                        <span id="price-high">0.00000000</span>
+                    </div>
+                    <div class="cell">
+                        <label>Low</label>
+                        <span id="price-low">0.00000000</span>
+                    </div>
+                </div>
+                <div id="chart"></div>
+            </div>
+            <div id="chart-info">
+                <h1 id="chart-label">ONE/USD</h1> 
+                <div id="chart-menu"> 
+                    <button id="chart-action0" class="chart-action selected" onclick="onChartPeriod(0)">24 Hours</button>
+                    <button id="chart-action1" class="chart-action" onclick="onChartPeriod(1)">7 Days</button> 
+                    <button id="chart-action2" class="chart-action" onclick="onChartPeriod(2)">1 Month</button> 
+                </div> 
+            </div>
+
+            <div id="calc-area">
+                <div id="calculator">
+                    <h1>Trade <span id="calc-title">ONE for USD</span> <img id="switch" src="/media/switch.png" onclick="onSwitch()"></h1>
+                    <div id="calc-form">
+                        <li><label>Sell <span id="label-base">ONE</span>:</label><input type="number" id="calc-base" value="200" tabindex="3" autocomplete="off" /></li>
+                        <li><label>Price <span id="label-price">ONE/USD</span>:</label><input type="textbox" id="calc-price" value="0" tabindex="2" disabled/></li>
+                        <li><label>Buy <span id="label-quote">USD</span>:</label><input type="number" id="calc-quote" value="1" tabindex="1" autocomplete="off" /></li>
+                        <li id="button-area"><button id="button-buy" onclick="onTrade()">TRADE</button></li>
+                        <li id="warn"></li>
+                    </div>
+                </div>
+                <div id="indices">
+                    <h1 id="info-market">ONE/USD</h1>
+                    <li><label>Open:   </label><span id="info-open"  >0.0000</span></li>
+                    <li><label>Close:  </label><span id="info-close" >0.0000</span></li>
+                    <li><label>High:   </label><span id="info-high"  >0.0000</span></li>
+                    <li><label>Low:    </label><span id="info-low"   >0.0000</span></li>
+                    <li><label>Spread: </label><span id="info-spread">0.00% </span></li>
+                    <li><label>Change: </label><span id="info-change">0.00% </span></li>
+                </div>
+            </div>
+        </div>
+    </wrap>
+</div>
+
+<div id="info">
+    <wrap>
+        <div id="wallet">
+            <img id="wallet-pic" src="/media/wallet.jpg">
+            <div id="wallet-info">
+                <p>In order to use SeeForex you need to install <a href="https://chrome.google.com/webstore/detail/harmony-one-wallet/fnnegphlobjdpkhecapkijjdkgcjhkib">Harmony One Wallet</a> extension for Brave, Chrome and Firefox, unfortunately Safari and Edge extensions are not ready yet. So go get the wallet at the <a href="https://chrome.google.com/webstore/detail/harmony-one-wallet/fnnegphlobjdpkhecapkijjdkgcjhkib">Chrome Store</a> and install it in your browser of choice.</p>
+                <p>Now you can use SeeForex at its fullest and you'll quickly learn how easy it is to interact with the DApp since it has been designed to be a one-click trading experience. Just select the currency you'd like to buy or sell then enter the amount in the form, the price will reflect the current rate at which you'll trade your currency, then click 'TRADE'. Your Harmony Wallet will pop up asking to confirm a transaction and you should click 'Approve' in order to perform a trade. That's it, you will get fiat tokens in your wallet as you can confirm in your new balance.</p>
+                <p>Once you get your currencies you can send them to any person or business that takes fiat currencies as these tokens are backed by every single ONE traded for them. If you decide to sell your currencies then do the opposite transaction, sell your fiat and get ONE at market price. We collect 1% fee on every transaction for site maintenance and hosting costs.</p>
+                <h3>That's how easy it is to trade currencies in SeeForex!</h3>
+            </div>
+        </div>
+        <div id="fiats">
+            <div id="fiat">
+                <h1>Fiat Tokens</h1>
+                <p>Fiat synthetic tokens are based on the HRC20 token specification, derived from ERC20 smart contracts they can be easily implemented in Harmony Network and all Ethereum compatible networks.</p>
+                <p>In order to add fiat tokens to your Harmony wallet, select the Tokens panel and press the (+) button, then enter the token address as specified in this list and the wallet will autommatically fetch the token info. Once you click on the Add button the token will appear on the list and the balance shown.</p>
+                <h3>Now you're ready to buy and sell fiat tokens on SeeForex!</h3>
+            </div>
+            <div id="tokens">
+                <h1>Contract Addresses</h1>
+                <pre>USD <a noref onclick="copyToClipboard(event)">0x78690Cf81a96b7f5A26b93F0e8464bBd5a1a3e90</a> <a href="https://explorer.harmony.one/#/address/0x78690Cf81a96b7f5A26b93F0e8464bBd5a1a3e90" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>EUR <a noref onclick="copyToClipboard(event)">0x9cBACEd58014BD857900dfB673f4Bdd988704165</a> <a href="https://explorer.harmony.one/#/address/0x9cBACEd58014BD857900dfB673f4Bdd988704165" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>GBP <a noref onclick="copyToClipboard(event)">0xF42055ac4dc87289Cca73B18441f999a565e8BC8</a> <a href="https://explorer.harmony.one/#/address/0xF42055ac4dc87289Cca73B18441f999a565e8BC8" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>JPY <a noref onclick="copyToClipboard(event)">0x6B13609F78c06A39803132a2fb92f57C205fE636</a> <a href="https://explorer.harmony.one/#/address/0x6B13609F78c06A39803132a2fb92f57C205fE636" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>CNY <a noref onclick="copyToClipboard(event)">0xE17F26fF1A353366623589eE8981A3EA5B074656</a> <a href="https://explorer.harmony.one/#/address/0xE17F26fF1A353366623589eE8981A3EA5B074656" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>KRW <a noref onclick="copyToClipboard(event)">0xc799f8F4A11806EBEF58bC7f45a062C1663E64B8</a> <a href="https://explorer.harmony.one/#/address/0xc799f8F4A11806EBEF58bC7f45a062C1663E64B8" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>INR <a noref onclick="copyToClipboard(event)">0x88629058205A0070029a6BA1807F1B77F577a050</a> <a href="https://explorer.harmony.one/#/address/0x88629058205A0070029a6BA1807F1B77F577a050" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>RUB <a noref onclick="copyToClipboard(event)">0xc3f065965bd8dD5B158084cFc1c622f1077E05c2</a> <a href="https://explorer.harmony.one/#/address/0xc3f065965bd8dD5B158084cFc1c622f1077E05c2" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>CHF <a noref onclick="copyToClipboard(event)">0x15975afdd89F41a9F1815B2E0ff2788b0874F512</a> <a href="https://explorer.harmony.one/#/address/0x15975afdd89F41a9F1815B2E0ff2788b0874F512" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>AUD <a noref onclick="copyToClipboard(event)">0xa4cc5050DA6b0957e355109201614adc5d687ad0</a> <a href="https://explorer.harmony.one/#/address/0xa4cc5050DA6b0957e355109201614adc5d687ad0" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>CAD <a noref onclick="copyToClipboard(event)">0x9019082CFB94CDf3BF80C591ab2Cc649e41C718c</a> <a href="https://explorer.harmony.one/#/address/0x9019082CFB94CDf3BF80C591ab2Cc649e41C718c" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>HKD <a noref onclick="copyToClipboard(event)">0x0e00c376c7Db89fAD302A4Fa2382750a3aAD3aF8</a> <a href="https://explorer.harmony.one/#/address/0x0e00c376c7Db89fAD302A4Fa2382750a3aAD3aF8" target="_blank"><img src="/media/openurl.png"></a></pre>
+                <pre>BRL <a noref onclick="copyToClipboard(event)">0x13481A6f27BDA9022d9820d4A53122662997A7e6</a> <a href="https://explorer.harmony.one/#/address/0x13481A6f27BDA9022d9820d4A53122662997A7e6" target="_blank"><img src="/media/openurl.png"></a></pre>
+            </div>
+        </div>
+    </wrap>
+</div>
+<footer>
+    <wrap>
+        <h2>@2021 All rights reserved</h2> <h1>SeeForex</h1>
+    </wrap>
+</footer>
+
+<script  type="module" src="/scripts/seeforex.js"></script>
+<script src="/scripts/chart.js"></script>
+<script src="/scripts/main.js"></script>
+</body>
+</html>
