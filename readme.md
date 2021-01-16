@@ -2,6 +2,8 @@
 
 ## Currency Exchange on Harmony Network
 
+[https://seeforex.one](https://seeforex.one)
+
 SeeForex is a currency exchange for trading fiat tokens at market price. It allows buying and selling currencies with just one click and transaction confirmations occur within seconds thanks to the fastest blockchain protocol Harmony Network.
 
 ![Webshot](media/webshot.jpg)
