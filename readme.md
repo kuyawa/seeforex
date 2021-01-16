@@ -22,14 +22,6 @@ Fiat synthetic tokens are based on the HRC20 token specification, derived from E
 
 In order to add fiat tokens to your Harmony wallet, select the Tokens panel and press the (+) button, then enter the token address as specified in this list and the wallet will autommatically fetch the token info. Once you click on the Add button the token will appear on the list and the balance shown.
 
-## SeeForex Video
-
-Watch a video on how to trade currencies in SeeForex
-
-[![Video](media/videoshot.jpg)](https://www.youtube.com/watch?v=AxbSbTn67Z4)
-
-https://www.youtube.com/watch?v=AxbSbTn67Z4
-
 ## Contract Addresses
 
 ```
@@ -51,5 +43,14 @@ BRL 0x13481A6f27BDA9022d9820d4A53122662997A7e6
 All contracts are on Mainnet. 
 
 SeeForex charges 1% fee on every transaction for development and hosting costs.
+
+## SeeForex Video
+
+Watch a video on how to trade currencies in SeeForex
+
+[![Video](media/videoshot.jpg)](https://www.youtube.com/watch?v=AxbSbTn67Z4)
+
+https://www.youtube.com/watch?v=AxbSbTn67Z4
+
 
 @2021 All rights reserved SeeForex
