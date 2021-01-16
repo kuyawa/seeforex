@@ -24,9 +24,9 @@ In order to add fiat tokens to your Harmony wallet, select the Tokens panel and 
 
 ## SeeForex Video
 
-Watch a video on how to trade currencies on SeeForex
+Watch a video on how to trade currencies in SeeForex
 
-[Video](https://www.youtube.com/watch?v=AxbSbTn67Z4)
+[![Video](media/videoshot.jpg)](https://www.youtube.com/watch?v=AxbSbTn67Z4)
 
 https://www.youtube.com/watch?v=AxbSbTn67Z4
 
