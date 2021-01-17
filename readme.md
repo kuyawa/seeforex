@@ -54,5 +54,10 @@ Watch a video on how to trade currencies in SeeForex
 
 https://www.youtube.com/watch?v=AxbSbTn67Z4
 
+## BandChain Integration
+
+SeeForex integrates BandChain protocol in order to fetch currency prices from their oracles every hour to update our token contracts with the latest market prices.
+
+[BandChain API call](https://github.com/kuyawa/seeforex/blob/main/src/cron.js)
 
 @2021 All rights reserved SeeForex
